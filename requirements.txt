@@ -2,3 +2,4 @@ streamlit>=1.24
 plotly>=5.15
 pandas>=1.5
 numpy>=1.23
+Flask>=2.3
