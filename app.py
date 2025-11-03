@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import List, Literal, Tuple, Union
 
 import logging
+import os
 
 import numpy as np
 import pandas as pd
@@ -632,7 +633,8 @@ def create_flask_app(base_data: pd.DataFrame) -> Flask:
 def main() -> None:
     base_data = load_price_data("df_vnindex.csv")
     app = create_flask_app(base_data)
-    app.run(debug=False, use_reloader=False)
+    port = int(os.environ.get("PORT", "5000"))
+    app.run(debug=False, use_reloader=False, port=port)
 
 
 if __name__ == "__main__":
